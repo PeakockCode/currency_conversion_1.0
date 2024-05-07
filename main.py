@@ -7,6 +7,8 @@ import requests
 
 load_dotenv(override=True)
 
+# currencies
+currencies = ["CZK", "USD", "EUR", "CAD", "CHF", "GBP", "PLN", "NZD", "JPY"]
 # fonts
 main_font = ("Verdana", 10)
 
@@ -54,18 +56,12 @@ user_input.grid(row=0, column=0, pady=10)
 
 # drop down menu - from currency
 drop_down_from = customtkinter.StringVar(value="CZK")
-drop_down_from_option = customtkinter.CTkOptionMenu(input_frame,
-                                                    values=["CZK", "USD", "EUR", "CAD",
-                                                            "CHF", "GBP", "PLN", "NZD", "JPY"],
-                                                    variable=drop_down_from)
+drop_down_from_option = customtkinter.CTkOptionMenu(input_frame, values=currencies, variable=drop_down_from)
 drop_down_from_option.grid(row=0, column=1, padx=(0, 10), pady=10)
 
 # drop down menu - to currency
 drop_down_to = customtkinter.StringVar(value="CZK")
-drop_down_to_option = customtkinter.CTkOptionMenu(input_frame,
-                                                  values=["CZK", "USD", "EUR",
-                                                          "CAD", "CHF", "GBP", "PLN", "NZD", "JPY"],
-                                                  variable=drop_down_to)
+drop_down_to_option = customtkinter.CTkOptionMenu(input_frame, values=currencies, variable=drop_down_to)
 drop_down_to_option.grid(row=1, column=1, padx=(0, 10), pady=10)
 
 # result label
