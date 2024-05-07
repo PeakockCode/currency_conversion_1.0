@@ -14,6 +14,6 @@ It allows users to convert between ten different currencies:
 
 Dependencies:
 
-requests: For making HTTP requests to the free currency API (freecurrencyapi.com).
-dotenv: For loading environment variables from a .env file.
-customtkinter: A custom module for enhancing the appearance of Tkinter widgets.
+- requests: For making HTTP requests to the free currency API (freecurrencyapi.com).
+- dotenv: For loading environment variables from a .env file.
+- customtkinter: A custom module for enhancing the appearance of Tkinter widgets.
