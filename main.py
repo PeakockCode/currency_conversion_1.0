@@ -1,13 +1,18 @@
+import os
+from dotenv import load_dotenv
 from tkinter import *
 import customtkinter
 import requests
 
+
+load_dotenv(override=True)
+
 # fonts
 main_font = ("Verdana", 10)
 
-# main window (size, title, icon)
+# main window (size, title, icon, background)
 root = customtkinter.CTk()
-root.geometry("500x220+750+350")
+root.geometry("400x220+750+350")
 root.resizable(False, False)
 root.configure(fg_color="#202D40")
 root.title("Currency conversion")
@@ -23,7 +28,7 @@ def convert_currency():
         currency_from = drop_down_from.get()
         currency_to = drop_down_to.get()
         amount = float(user_input.get().replace(",", "."))
-        apikey = "fca_live_MNXe15LVmbMVLj6inZ6xhsNa5noeCfCyQdzkRRte"
+        apikey = os.getenv("FREE_CURRENCY_API_KEY")
         url = (f"https://api.freecurrencyapi.com/v1/latest?apikey={apikey}&"
                f"currencies={currency_to}&base_currency={currency_from}")
         response = requests.request("GET", url)
@@ -37,13 +42,14 @@ def convert_currency():
 
 
 # frames
-input_frame = customtkinter.CTkFrame(root, fg_color="#202D40", width=200)
+input_frame = customtkinter.CTkFrame(root, fg_color="#202D40")
 input_frame.pack(padx=5, pady=5)
 buttons_frame = customtkinter.CTkFrame(root, fg_color="#202D40")
 buttons_frame.pack(padx=5, pady=5)
+
 # user input
-user_input = customtkinter.CTkEntry(input_frame, width=150, font=main_font,
-                                    placeholder_text="-", justify=CENTER)
+user_input = customtkinter.CTkEntry(input_frame, width=200, font=main_font,
+                                    placeholder_text="Insert amount", justify=CENTER)
 user_input.grid(row=0, column=0, pady=10)
 
 # drop down menu - from currency
@@ -71,10 +77,10 @@ notification_label = customtkinter.CTkLabel(input_frame, text="", font=main_font
                                             fg_color="transparent")
 notification_label.grid(row=2, column=0, padx=10, pady=10)
 
-# count button
-count_button = customtkinter.CTkButton(buttons_frame, text="Convert", width=100, height=30, border_width=1,
-                                       font=main_font, command=convert_currency)
-count_button.grid(row=0, column=0, padx=10, pady=10)
+# convert button
+convert_button = customtkinter.CTkButton(buttons_frame, text="Convert", width=100, height=30, border_width=1,
+                                         font=main_font, command=convert_currency)
+convert_button.grid(row=0, column=0, padx=10, pady=10)
 
 # quit button
 quit_button = customtkinter.CTkButton(buttons_frame, text="Quit", width=100, height=30, border_width=1,
