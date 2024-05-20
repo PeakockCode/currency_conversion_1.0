@@ -8,7 +8,7 @@ import requests
 load_dotenv(override=True)
 
 # currencies
-currencies = ["CZK", "USD", "EUR", "CAD", "CHF", "GBP", "PLN", "NZD", "JPY"]
+currencies = ["CZK", "USD", "EUR", "CAD", "CHF", "GBP", "PLN", "AUD", "NZD", "JPY"]
 # fonts
 main_font = ("Verdana", 10)
 
