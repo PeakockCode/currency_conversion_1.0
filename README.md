@@ -1,4 +1,4 @@
-This small project implements a currency converter application using Python's Tkinter library for the GUI and API from freecurrencyapi.com to get actual exchange rates. 
+This small project implements a currency converter application using Python's Tkinter library (customtkinter) for the GUI and API from freecurrencyapi.com to get actual exchange rates. 
 
 It allows users to convert between ten different currencies: 
 - Czech Koruna (CZK), 
