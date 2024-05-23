@@ -4,6 +4,17 @@ from tkinter import *
 import customtkinter
 import requests
 
+"""
+Application to convert the specified amount from one currency to another.
+
+Retrieves the input amount, source currency, and target currency 
+from the user interface. Then, it makes a request to the Free Currency API
+to get the latest exchange rates. Once the rates are obtained, it calculates 
+the converted amount and updates the result label on the user interface.
+
+If an invalid amount is entered or there is an issue with the API request, 
+it displays an appropriate notification message on the user interface.
+"""
 
 load_dotenv(override=True)
 
@@ -22,7 +33,7 @@ root.iconbitmap("icons/icon.ico")
 customtkinter.set_appearance_mode("dark")
 
 
-# currency convert function
+# Function for currency conversion
 def convert_currency():
     notification_label.configure(text="")
     result_label.configure(text="0")
@@ -83,5 +94,5 @@ quit_button = customtkinter.CTkButton(buttons_frame, text="Quit", width=100, hei
                                       font=main_font, command=root.destroy)
 quit_button.grid(row=0, column=1, padx=10, pady=10)
 
-# main loop
+# main loop to handle the application
 root.mainloop()
